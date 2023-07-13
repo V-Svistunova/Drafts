@@ -1,0 +1,23 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  border-radius: 3px;
+  border: 1px solid #CDCDCD;
+  text-align: center;
+  max-width: 265px;
+  min-height: 400px;
+  list-style: none;
+}
+.img {
+  max-height: 190px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  object-fit: contain;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 0 20px;
+}

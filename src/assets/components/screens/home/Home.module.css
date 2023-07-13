@@ -1,0 +1,20 @@
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+h1 {
+  color: var(--unnamed, #2F3035);
+  font-size: 30px;
+  font-weight: 700;
+  margin: 40px 0 30px;
+}
+.box {
+  display: flex;
+  gap: 10px;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
