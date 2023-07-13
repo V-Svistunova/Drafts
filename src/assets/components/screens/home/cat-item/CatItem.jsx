@@ -3,9 +3,14 @@ import styles from './CatItem.module.css'
 function CatItem({catItem}) {
   return (
     <li key={catItem.id} className={styles.item} >
-      <div>
+      <div className={styles.imgWrap}>
         <a href="#">
-          <img className={styles.img} src={`${catItem.image}`} alt="img" />
+          <div 
+            style={{
+              backgroundImage: `url(${catItem.image})`
+            }}
+            className={styles.img}
+          />
         </a>
       </div>
       <div className={styles.content}>

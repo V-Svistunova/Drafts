@@ -16,5 +16,5 @@ h1 {
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 30px 28px;
 }
