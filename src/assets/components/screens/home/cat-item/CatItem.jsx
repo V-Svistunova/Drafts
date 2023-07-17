@@ -1,22 +1,23 @@
+import { Link } from 'react-router-dom'
 import styles from './CatItem.module.css'
 
 function CatItem({catItem}) {
   return (
     <li key={catItem.id} className={styles.item} >
       <div className={styles.imgWrap}>
-        <a href="#">
+        <Link to={`/car/${catItem.id}`}>
           <div 
             style={{
               backgroundImage: `url(${catItem.image})`
             }}
             className={styles.img}
           />
-        </a>
+        </Link>
       </div>
       <div className={styles.content}>
-        <a href="#">
+        <Link to={`/car/${catItem.id}`}>
           <span>{catItem.name}</span>
-        </a>
+        </Link>
         <span>
           {catItem.price ? new Intl.NumberFormat('ru-RU', {
           style: 'currency',
@@ -24,7 +25,10 @@ function CatItem({catItem}) {
           }).format(catItem.price) : 'нет в наличии'}
         </span>
       </div>
-      <a href="#">Read more</a>
+      {catItem.price ? 
+      <Link to={`/`}>Купить</Link> : 
+      <Link to={`/`}>Сообщить о поступлении</Link> 
+      }
     </li>
   )
 }

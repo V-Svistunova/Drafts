@@ -1,37 +1,56 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './CreateCarForm.module.css'
 
-const CreateCarForm = ({setCat}) => {
-  const [name, setName] = useState('')
-  const [price, setPrice] = useState('')
-  const [image, setImage] = useState('')
+const clearData = {
+  price: '',
+  name: '',
+  image: '',
+}
+
+const CreateCarForm = ({ setCat }) => {
+  const [data, setData] = useState(clearData)
 
   const createCat = (e) => {
     e.preventDefault()
-    setCat(prev => [...prev, { id: prev.lenght + 1, name, price, image}])
+
+    setCat(prev => [
+      { 
+        id: prev.lenght + 1, 
+        ...data,
+      }, 
+      ...prev,
+    ])
+
+    setData(clearData)
   }
 
   return <form className={styles.form}>
     <input 
       placeholder="Введите модель"
-      onChange={e => setName(e.target.value)}
-      value={name}
+      onChange={e => setData(prev => ({
+        ...prev, name: e.target.value
+      }))}
+      value={data.name}
     />
     <input 
       placeholder='Ссылка на изображение'
-      onChange={e => setImage(e.target.value)}
-      value={image}
+      onChange={e => setData(prev => ({
+        ...prev, image: e.target.value
+      }))}
+      value={data.image}
     />
     <div>
-      <label htmlFor="filterPrice">Цена {price ? `- ${price}` : ''}</label>
+      <label htmlFor="filterPrice">Цена {data.price ? `- ${data.price}` : ''}</label>
       <input 
         type="range" 
         name="Цена" 
         id="filterPrice" 
         min={0}
         max={2000}
-        onChange={e => setPrice(e.target.value)}
-        value={price}
+        onChange={e => setData(prev => ({
+          ...prev, price: e.target.value
+        }))}
+        value={data.price}
        />
     </div>
 
@@ -39,7 +58,7 @@ const CreateCarForm = ({setCat}) => {
       className={styles.buttom}
       onClick={e => createCat(e)}
       >
-      ВЫБРАТЬ
+      Добавить
       </button>
   </form>
 }

@@ -1,15 +1,25 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import styles from './Home.module.css'
 import CatItem from './cat-item/CatItem'
-import {catItems as catData} from './cat.data'
 import CreateCarForm from './create-car-form/CreateCarForm'
+import axios from 'axios'
+import {CatService} from './../../../services/cat.service'
 
 
 function Home() {
 
   // const filteredCat = useMemo(() => catItems.filter(catItem => catItem.price > 700), [])
 
-  const [catItems, setCat] = useState(catData)
+  const [catItems, setCat] = useState([])
+
+  useEffect(() => {
+    const fetchData = async() => {
+      const data = await CatService.getAll()
+      setCat(data)
+    }
+
+    fetchData()
+  }, [])
   
   return (
     <main className={styles.main}>

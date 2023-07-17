@@ -6,6 +6,7 @@
   border-radius: 3px;
   border: 1px solid #CDCDCD;
   text-align: center;
+  width: 100%;
   max-width: 250px;
   min-height: 400px;
   list-style: none;
@@ -14,10 +15,9 @@
 .imgWrap {
   width: 100%;
   height: 100%;
-  max-height: 190px;
+  height: 190px;
   padding: 0 10px;
   box-sizing: border-box;
-  object-fit: contain;
 }
 .imgWrap a {
   height: 100%;
