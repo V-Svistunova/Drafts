@@ -9,16 +9,22 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import CatDetail from './assets/components/screens/cat-detail/CatDetail'
+import App from './App'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/cat',
     element: <Home/>,
     errorElement: <div>Not found</div>,
   },
   {
-    path: '/car/:id',
+    path: '/cat/:id',
     element: <CatDetail/>,
+    errorElement: <div>Not found</div>,
+  },
+  {
+    path: '/',
+    element: <App/>,
     errorElement: <div>Not found</div>,
   },
 ])

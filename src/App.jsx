@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import viteLogo from '/vite.svg'
+import Header from './assets/components/header/Header'
+
+
 
 function App() {
   return (
     <>
-      <h1>
-        Cars catalog
-      </h1>
+      <Header/>
     </>
   )
 }

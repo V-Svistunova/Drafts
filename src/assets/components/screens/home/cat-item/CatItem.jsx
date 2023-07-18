@@ -5,7 +5,7 @@ function CatItem({catItem}) {
   return (
     <li key={catItem.id} className={styles.item} >
       <div className={styles.imgWrap}>
-        <Link to={`/car/${catItem.id}`}>
+        <Link to={`/cat/${catItem.id}`}>
           <div 
             style={{
               backgroundImage: `url(${catItem.image})`
@@ -15,7 +15,7 @@ function CatItem({catItem}) {
         </Link>
       </div>
       <div className={styles.content}>
-        <Link to={`/car/${catItem.id}`}>
+        <Link to={`/cat/${catItem.id}`}>
           <span>{catItem.name}</span>
         </Link>
         <span>
